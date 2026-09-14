@@ -12,6 +12,18 @@ The central question behind IDMON is:
 
 ---
 
+### From BIT to IDMON
+
+IDMON began as BIT — Blockchain Intelligence Terminal, originally focused on turning raw Bitcoin transaction activity into structured on-chain intelligence.
+
+As the project developed, its scope expanded beyond transaction monitoring. Bitcoin-native intelligence remains the foundation, but the system now incorporates derivatives market structure, ETF and macro context, prospective quantitative research and evidence-gated decision testing.
+
+The project therefore evolved into IDMON — Digital Asset Intelligence to better reflect its broader research objective.
+
+BIT represents the project's origins; IDMON represents the system it is becoming.
+
+---
+
 ## The Problem
 
 Large Bitcoin transactions are easy to sensationalise.
@@ -150,7 +162,7 @@ T0 is the exact point at which a research observation or decision is created.
 
 The evidence available at that moment is frozen.
 
-                ```  T0
+                    T0
                      │
         ┌────────────┼────────────┐
         │            │            │
@@ -158,7 +170,7 @@ The evidence available at that moment is frozen.
        6h           24h          72h
      outcome       outcome      outcome
 
-     ```
+     
 
 Information learned after T0 cannot silently be inserted into the original research record.
 
@@ -453,13 +465,3 @@ IDMON remains an active independent research project.
 Current research outputs are descriptive and experimental.
 
 Nothing produced by the system should be interpreted as financial advice or as evidence of guaranteed trading performance.
-
-### From BIT to IDMON
-
-IDMON began as BIT — Blockchain Intelligence Terminal, originally focused on turning raw Bitcoin transaction activity into structured on-chain intelligence.
-
-As the project developed, its scope expanded beyond transaction monitoring. Bitcoin-native intelligence remains the foundation, but the system now incorporates derivatives market structure, ETF and macro context, prospective quantitative research and evidence-gated decision testing.
-
-The project therefore evolved into IDMON — Digital Asset Intelligence to better reflect its broader research objective.
-
-BIT represents the project's origins; IDMON represents the system it is becoming.
