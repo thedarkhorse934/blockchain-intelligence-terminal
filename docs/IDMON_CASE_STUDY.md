@@ -91,18 +91,18 @@ IDMON runs against a local Bitcoin Core node and processes Bitcoin blocks and tr
 
 The Bitcoin intelligence layer analyses characteristics including:
 
-significant BTC transfers;
-exchange-related deposits and withdrawals;
-source and destination attribution;
-coin dormancy and input age;
-entity behaviour;
-destination, source, and route recurrence;
-activity unusual relative to an entity's own history;
-multi-transfer activity episodes;
-relay campaigns;
-exchange-to-exchange movements;
-related or sibling transaction structures;
-case and investigation history.
+- significant BTC transfers;
+- exchange-related deposits and withdrawals;
+- source and destination attribution;
+- coin dormancy and input age;
+- entity behaviour;
+- destination, source, and route recurrence;
+- activity unusual relative to an entity's own history;
+- multi-transfer activity episodes;
+- relay campaigns;
+- exchange-to-exchange movements;
+- related or sibling transaction structures;
+- case and investigation history.
 
 The objective is not simply to identify large transactions.
 
@@ -114,7 +114,7 @@ Is 1,000 BTC unusual for this particular entity?
 
 That distinction has become increasingly important in the project's quantitative research.
 
-#Derivatives Market Structure
+### Derivatives Market Structure
 
 IDMON collects prospective BTC perpetual-futures data from Hyperliquid and Deribit.
 
@@ -140,7 +140,7 @@ For example:
 - Cross-venue disagreement ≠ automatically actionable
 - Derivatives information is treated as market evidence rather than a trading signal by default.
 
-T0 — Prospective Research Integrity
+### T0 — Prospective Research Integrity
 
 A major focus of IDMON is avoiding hindsight bias.
 
@@ -167,8 +167,8 @@ This means IDMON cannot reconstruct yesterday's setup using information that onl
 Subsequent Bitcoin outcomes are instead appended prospectively.
 
 
-Prospective Research Dataset
-Snapshot — 14 September 2026
+### Prospective Research Dataset
+#### Snapshot — 14 September 2026
 
 At this stage of development, IDMON had accumulated:
 
@@ -287,7 +287,7 @@ NO_TRADE
 
 NO_TRADE is deliberately treated as a valid successful outcome.
 
-Example Decision
+### Example Decision
 
 One prospective Decision Lab record captured the following setup:
 
