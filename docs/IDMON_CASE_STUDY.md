@@ -85,7 +85,7 @@ IDMON combines several independent evidence domains.
 
 These evidence domains remain separately inspectable rather than being collapsed into a simplistic bullish/bearish master score.
 
-Bitcoin-Native Intelligence
+### Bitcoin-Native Intelligence
 
 IDMON runs against a local Bitcoin Core node and processes Bitcoin blocks and transactions directly.
 
@@ -206,7 +206,7 @@ The threshold represents dataset maturity only.
 
 It does not establish statistical significance, causation, or predictive edge.
 
-##Quantitative Research
+### Quantitative Research
 
 IDMON groups prospectively captured Bitcoin events into comparable research cohorts and measures subsequent Bitcoin behaviour.
 
@@ -242,7 +242,7 @@ Directional evidence remains mixed.
 
 The project therefore does not currently interpret this relationship as a trading signal.
 
-##Decision Lab
+### Decision Lab
 
 Decision Lab is IDMON's prospective decision-research environment.
 
@@ -322,7 +322,7 @@ IDMON is not being built to demonstrate that every market interpretation is corr
 
 It is being built to investigate whether disciplined evidence and risk gates can prevent weak interpretations from becoming bad decisions.
 
-##Research Principles
+### Research Principles
 
 Several rules sit underneath the project:
 
@@ -348,7 +348,7 @@ These constraints are intentional.
 
 They are part of the product rather than limitations to be hidden.
 
-##Technology and Data
+### Technology and Data
 
 IDMON is primarily developed in Node.js and runs continuously on a Mac mini research environment.
 
@@ -368,7 +368,7 @@ Core infrastructure currently includes:
 
 The system is designed around deterministic collection and evidence processing first, with AI used as an interpretation layer rather than the source of truth.
 
-Current Research Direction
+### Current Research Direction
 
 The next major research phase moves beyond studying individual transaction families toward studying complete market states.
 
@@ -409,7 +409,7 @@ No assumption is made that a usable predictive edge must exist.
 
 The research is designed to discover whether one exists.
 
-##Long-Term Objective
+### Long-Term Objective
 
 The long-term objective is an explainable Bitcoin-native intelligence system capable of answering:
 
@@ -426,7 +426,7 @@ What has happened historically under comparable conditions?
 Is there enough evidence to trade — or should nothing be done?
 
 
-##About the Builder
+### About the Builder
 
 IDMON is designed and built by Darkhorse934.
 
@@ -446,7 +446,7 @@ I am interested in opportunities involving:
 
 Bitcoin research · Digital-asset intelligence · On-chain analysis · Crypto market research · Research tooling · Data-driven product development
 
-##Project Status
+### Project Status
 
 IDMON remains an active independent research project.
 
@@ -454,7 +454,7 @@ Current research outputs are descriptive and experimental.
 
 Nothing produced by the system should be interpreted as financial advice or as evidence of guaranteed trading performance.
 
-##From BIT to IDMON
+### From BIT to IDMON
 
 IDMON began as BIT — Blockchain Intelligence Terminal, originally focused on turning raw Bitcoin transaction activity into structured on-chain intelligence.
 
