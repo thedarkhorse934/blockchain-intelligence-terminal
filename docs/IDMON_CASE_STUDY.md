@@ -162,6 +162,9 @@ T0 is the exact point at which a research observation or decision is created.
 
 The evidence available at that moment is frozen.
 
+
+```text
+
                     T0
                      │
         ┌────────────┼────────────┐
@@ -170,6 +173,7 @@ The evidence available at that moment is frozen.
        6h           24h          72h
      outcome       outcome      outcome
 
+```
      
 
 Information learned after T0 cannot silently be inserted into the original research record.
@@ -210,7 +214,7 @@ DESCRIPTIVE sample threshold:
 - Exchange Withdrawal
 - Exchange Deposit Episode
 - Exchange Withdrawal Episode
-- Relay Campaign
+- BTC Relay Campaign
 - Repeated Route Episode
 - Exchange To Exchange
 
