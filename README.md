@@ -1,328 +1,326 @@
-# Blockchain Intelligence Terminal — BIT ₿
+# IDMON — Digital Asset Intelligence ₿
 
-**Turning raw blockchain activity into structured intelligence.**
+> **Bitcoin-native market intelligence, prospective research, and evidence-gated decision support.**
 
-Blockchain Intelligence Terminal (BIT) is a private research and development project focused on detecting, classifying and interpreting meaningful activity across public blockchains.
+IDMON is an independent research and engineering project exploring whether Bitcoin-native intelligence can improve the quality of real market decisions.
 
-Bitcoin is currently BIT's primary intelligence layer.
+The system combines direct Bitcoin Core ingestion, on-chain behavioural intelligence, Hyperliquid and Deribit perpetual-futures data, ETF and macro context, prospective quantitative research, and a decision-research layer that can explicitly return **TRADE** or **NO_TRADE**.
 
-Rather than simply reporting that a large transaction occurred, BIT is being developed to answer the harder questions:
+The production codebase remains private. This repository is the public technical showcase for the project.
 
-* What moved?
-* Where did it come from?
-* Where is it going?
-* How long had the assets been dormant?
-* Is the destination associated with an exchange, custodian, institution or other known entity?
-* Is the transaction part of a larger behavioural pattern?
-* Does the activity appear unusual enough to warrant further investigation?
-
-The production intelligence engine remains private. This repository documents BIT's architecture, capabilities and development progress without exposing proprietary intelligence logic.
+**→ [Read the full IDMON case study](docs/IDMON_CASE_STUDY.md)**
 
 ---
 
-## 🧠 Current Intelligence Capabilities
+## What IDMON Does
 
-### Bitcoin Core Ingestion
+IDMON is designed to answer progressively harder questions:
 
-BIT uses a locally operated Bitcoin Core node as its primary Bitcoin data source.
+- What happened on-chain?
+- Is the activity unusual in context?
+- What is happening in BTC derivatives markets at the same time?
+- What evidence supports or contradicts a market thesis?
+- What happened after comparable observations in the prospective dataset?
+- Is there enough evidence to justify a trade, or is **NO_TRADE** the correct result?
 
-This provides direct blockchain ingestion without relying on third-party APIs as the core data pipeline.
-
-BIT processes block and transaction data before passing it through its intelligence layers.
-
----
-
-### 🐋 Whale Transaction Monitoring
-
-BIT continuously analyses Bitcoin transactions for significant movements.
-
-Detected events are enriched with additional context rather than being treated as simple transfer alerts.
-
-Analysis includes:
-
-* Transaction size
-* Source and destination structure
-* Confirmation state
-* Known entity associations
-* Transaction routing patterns
-* Historical context
+The project deliberately avoids turning every interesting event into a bullish or bearish signal.
 
 ---
 
-### ⏳ Dormancy Intelligence
-
-BIT analyses the age of coins being moved to distinguish routine activity from historically significant movements.
-
-This allows the system to identify activity involving:
-
-* Recently active coins
-* Aged holdings
-* Dormant holdings
-* Deep dormant holdings
-* Ancient Bitcoin
-
-Long-dormant Bitcoin movements can then be escalated for deeper analysis.
-
----
-
-### 🏦 Exchange Flow Intelligence
-
-BIT identifies known exchange-associated activity and distinguishes between different directional flows.
-
-This includes analysis of:
-
-* Exchange deposits
-* Exchange withdrawals
-* Large exchange-related transfers
-* Paired flows
-* Potential internal exchange movements
-* Accumulation and distribution behaviour
-
-Importantly, BIT avoids automatically interpreting an exchange deposit as a sale.
-
----
-
-### 🧩 Entity Intelligence
-
-BIT maintains intelligence about known blockchain entities and their associated addresses.
-
-The system is being developed to move beyond simple address labels toward understanding relationships between wallets, endpoints and entities.
-
-Research areas include:
-
-* Entity attribution
-* Address relationships
-* Recurring counterparties
-* Wallet behavioural profiles
-* Known exchange endpoints
-* Custodial infrastructure
-* Entity conviction
-* Historical entity activity
-
----
-
-### 🔗 Transaction & Relationship Analysis
-
-Individual transactions are analysed within a wider behavioural context.
-
-BIT investigates patterns such as:
-
-* Splits
-* Relays
-* Consolidations
-* Repeated destination behaviour
-* Upstream and downstream wallet relationships
-* Large-wallet behavioural changes
-
-This helps distinguish potentially meaningful activity from routine blockchain movement.
-
----
-
-### 🚨 Signal & Case Intelligence
-
-BIT combines multiple intelligence layers to determine which events deserve attention.
-
-Significant events can be promoted into structured intelligence cases containing supporting evidence and interpretation.
-
-The aim is not simply to generate more alerts.
-
-The aim is to generate **better intelligence**.
-
----
-
-### 🤖 AI-Assisted Interpretation
-
-BIT is being developed with an AI-assisted interpretation layer designed to turn structured blockchain evidence into readable analysis.
-
-The system separates:
-
-**Observed facts**
-
-from
-
-**Interpretation**
-
-and attempts to preserve uncertainty where transaction intent cannot be proven.
-
-Examples include distinguishing between:
-
-* Confirmed exchange attribution
-* Probable entity relationships
-* Unknown destination activity
-* Possible selling pressure
-* Confirmed selling activity
-
----
-
-## 🏗️ Architecture
+## Architecture
 
 ```text
-                   ┌─────────────────┐
-                   │  Bitcoin Core   │
-                   └────────┬────────┘
-                            │
-                            ▼
-                  ┌───────────────────┐
-                  │ Block / TX Parser │
-                  └─────────┬─────────┘
-                            │
-                            ▼
-                ┌───────────────────────┐
-                │ Classification Layer  │
-                └──────────┬────────────┘
-                           │
-           ┌───────────────┼────────────────┐
-           ▼               ▼                ▼
-     Dormancy Intel   Exchange Intel   Entity Intel
-           │               │                │
-           └───────────────┼────────────────┘
-                           ▼
-               Relationship Intelligence
-                           │
-                           ▼
-                    Signal Engine
-                           │
-                           ▼
-                     Case Builder
-                           │
-                           ▼
-                AI Interpretation Layer
-                           │
-              ┌────────────┴────────────┐
-              ▼                         ▼
-       Terminal Dashboard        Intelligence Briefing
+                        BITCOIN CORE
+                             │
+                             ▼
+                  TRANSACTION INGESTION
+                             │
+                             ▼
+                 BITCOIN INTELLIGENCE
+                  ├─ Exchange flows
+                  ├─ Whale activity
+                  ├─ Dormancy
+                  ├─ Entity behaviour
+                  ├─ Route recurrence
+                  ├─ Activity episodes
+                  ├─ Relay campaigns
+                  └─ Related movements
+                             │
+          ┌──────────────────┼──────────────────┐
+          │                  │                  │
+          ▼                  ▼                  ▼
+     HYPERLIQUID          DERIBIT         MARKET CONTEXT
+     BTC PERPS            BTC PERPS       ETF / MACRO
+          │                  │                  │
+          └──────────────────┼──────────────────┘
+                             ▼
+                    PROSPECTIVE RESEARCH
+                             │
+                             ▼
+                       QUANT LAYER
+                             │
+                             ▼
+                       DECISION LAB
+                             │
+                    ┌────────┴────────┐
+                    ▼                 ▼
+                  TRADE            NO_TRADE
 ```
 
-BIT is intentionally modular so individual data providers and intelligence layers can evolve independently.
+Each evidence domain remains separately inspectable rather than being collapsed into a single opaque market score.
 
 ---
 
-## 📡 Intelligence Terminal
+## Bitcoin Intelligence
 
-BIT is designed as a terminal-first intelligence environment.
+IDMON uses a locally operated Bitcoin Core node as its primary Bitcoin data source.
 
-Current views include areas such as:
+Current Bitcoin-native research includes:
 
-* Network and ingestion health
-* Whale transfers
-* Exchange flow summaries
-* Dormant coin movements
-* Entity-focused intelligence
-* Intelligence cases
-* Daily intelligence briefings
-* Stablecoin and real-world asset research
+- significant BTC transfers;
+- exchange deposits and withdrawals;
+- source and destination attribution;
+- coin dormancy and input age;
+- entity behaviour;
+- source, destination, and route recurrence;
+- entity-relative transfer size;
+- activity episodes;
+- relay campaigns;
+- exchange-to-exchange movement;
+- related transaction structures;
+- structured intelligence cases.
 
----
-
-## 🌐 Beyond Bitcoin
-
-Bitcoin remains the primary development focus because it provides the strongest environment for building and validating BIT's intelligence architecture.
-
-Additional research areas include:
-
-### Stablecoins
-
-Monitoring supply, flows and market changes across major stablecoin ecosystems.
-
-### Real-World Assets
-
-Exploring how tokenised financial assets can be monitored and interpreted using blockchain intelligence techniques.
-
-### Multi-Asset Intelligence
-
-BIT's longer-term architecture is designed to support intelligence across multiple blockchain ecosystems rather than remaining exclusively Bitcoin-focused.
+The objective is not simply to detect a large transaction. It is to understand whether that transaction is unusual **for the entity, route, market state, and historical context in which it occurred**.
 
 ---
 
-## 🧪 Research Direction
+## Derivatives Market Structure
 
-Current development is deliberately focused on improving:
+IDMON prospectively collects BTC perpetual-futures data from **Hyperliquid** and **Deribit**.
 
-1. Data quality
-2. Entity attribution
-3. Relationship intelligence
-4. Signal quality
-5. Interpretation accuracy
-6. Historical context
+The current market-structure layer includes:
 
-More advanced predictive research is a later-stage objective.
+- open interest;
+- funding;
+- mark and oracle pricing;
+- basis / premium / discount;
+- rolling volume;
+- 1h / 6h / 24h structural changes;
+- cross-venue comparison.
 
-The priority today is making the underlying intelligence engine trustworthy.
+The system deliberately avoids unsupported shortcuts:
 
----
+> Falling open interest does not automatically prove liquidation.
+>
+> Positive funding does not prove the market is bullish.
+>
+> Cross-venue disagreement is not automatically actionable.
 
-## 🛠️ Technology
-
-BIT currently incorporates technologies and workflows including:
-
-* JavaScript
-* Node.js
-* Bitcoin Core
-* Bitcoin Core RPC
-* Blockchain transaction analysis
-* Local data pipelines
-* Entity datasets
-* CLI / terminal interfaces
-* Git
-* GitHub
-* AI-assisted software development and analysis
+Derivatives data is treated as evidence first, not as a trading signal by default.
 
 ---
 
-## 📈 Project Evolution
+## Prospective Research and T0
 
-BIT grew out of earlier experiments in blockchain development and monitoring.
+A major focus of IDMON is avoiding hindsight bias.
+
+The project uses **T0 — time zero**: the exact moment at which a research observation or decision is created.
+
+Evidence available at T0 is frozen. Information learned later cannot be silently inserted into the original observation.
 
 ```text
-Solidity & Smart Contracts
-          ↓
-Ethereum Interaction
-          ↓
-DeFi Monitoring
-          ↓
-Uniswap Observatory
-          ↓
-Bitcoin Whale Radar
-          ↓
-Blockchain Intelligence Terminal
+                    T0
+                     │
+        ┌────────────┼────────────┐
+        │            │            │
+        ▼            ▼            ▼
+       6h           24h          72h
+     outcome       outcome      outcome
 ```
 
-What began as experimentation with blockchain transactions evolved into a broader question:
-
-> **Can raw blockchain data be transformed into useful, explainable intelligence?**
-
-BIT is my attempt to build that system.
+This allows IDMON to measure what happened afterwards without reconstructing yesterday using today's knowledge.
 
 ---
 
-## 🔒 Why Is the Main Repository Private?
+## Quant Research
 
-BIT's production codebase contains intelligence logic, entity datasets, classification systems, heuristics and experimental research that are not currently open source.
+Prospectively captured Bitcoin events are grouped into comparable research cohorts and measured against subsequent BTC outcomes.
 
-This repository therefore acts as the public technical showcase for the project.
+Research dimensions currently include characteristics such as:
 
-Architecture, development progress, screenshots and sanitised intelligence examples will be published here as BIT evolves.
+- transaction amount;
+- entity-relative transfer size;
+- entity historical percentile;
+- route and counterparty novelty;
+- recurrence;
+- dormancy;
+- episode structure;
+- relay behaviour.
 
----
+These cohorts are explicitly treated as **descriptive research** unless stronger evidence is established.
 
-## ⚠️ Research Disclaimer
-
-BIT is an experimental blockchain intelligence and research project.
-
-Its outputs are analytical observations and should not be interpreted as financial or investment advice.
-
-On-chain activity often has multiple possible explanations, and transaction intent cannot always be determined from blockchain data alone.
-
----
-
-## 🚧 Status
-
-**Active development — 2026**
-
-Current priority:
-
-> Build the strongest possible intelligence and data-quality foundation before expanding into more advanced predictive systems.
+Sample maturity does not establish statistical significance, causation, or predictive edge.
 
 ---
 
-**Built to understand what is happening on-chain — not simply report that something happened.**
+## Decision Lab
+
+Decision Lab is IDMON's prospective decision-research environment.
+
+Before a hypothetical trade can pass, the system records and checks:
+
+- directional hypothesis;
+- confidence and horizon;
+- thesis;
+- counter-evidence;
+- invalidation conditions;
+- evidence freshness;
+- timestamp integrity;
+- evidence breadth;
+- cross-venue agreement;
+- prospective-only integrity.
+
+The output can be:
+
+```text
+TRADE
+```
+
+or:
+
+```text
+NO_TRADE
+```
+
+`NO_TRADE` is intentionally treated as a valid outcome when the evidence is weak, conflicting, stale, or incomplete.
+
+The purpose is not to make IDMON produce more trades. It is to test whether disciplined evidence gates can improve the quality of decisions.
+
+---
+
+## From BIT to IDMON
+
+IDMON began as **BIT — Blockchain Intelligence Terminal**.
+
+BIT's original focus was turning raw Bitcoin transaction activity into structured, explainable on-chain intelligence.
+
+As the project developed, its scope expanded beyond transaction monitoring into derivatives market structure, ETF and macro context, prospective quantitative research, and evidence-gated decision testing.
+
+The project therefore evolved into **IDMON — Digital Asset Intelligence** to better reflect the system it is becoming.
+
+> **BIT represents the project's origins. IDMON represents its broader research direction.**
+
+The Bitcoin intelligence work built during the BIT phase remains the foundation of IDMON rather than a discarded earlier project.
+
+---
+
+## Research Principles
+
+IDMON is built around a few deliberately conservative rules:
+
+- **Unknown remains unknown.**
+- **Address linkage does not automatically establish ownership.**
+- **Bitcoin movement does not automatically establish selling.**
+- **An exchange deposit does not prove a sale occurred.**
+- **Market movement does not prove causation.**
+- **Missing or stale evidence is not neutral evidence.**
+- **Descriptive relationships are not automatically predictive edge.**
+- **AI interpretation cannot override deterministic evidence.**
+- **NO_TRADE is a legitimate research result.**
+
+These constraints are part of the product, not caveats to be hidden.
+
+---
+
+## Current Research Direction
+
+The next major research phase moves from studying isolated transaction families toward studying **complete market states**.
+
+Instead of asking only:
+
+> What happened after an unusual exchange deposit?
+
+IDMON increasingly asks:
+
+> When Bitcoin price structure, Hyperliquid positioning, Deribit structure, ETF context, market regime, and relevant on-chain behaviour looked like this at T0, what happened afterwards?
+
+The intended research loop is:
+
+```text
+OBSERVE
+   ↓
+UNDERSTAND
+   ↓
+TEST
+   ↓
+QUANT RESEARCH
+   ↓
+DECISION LAB
+   ↓
+TRADE / NO_TRADE
+   ↓
+MEASURE OUTCOME
+   ↓
+LEARN
+```
+
+No assumption is made that a usable predictive edge must exist. The research is designed to investigate whether one exists.
+
+---
+
+## Technology
+
+Current technologies and workflows include:
+
+- JavaScript / Node.js
+- Bitcoin Core
+- Bitcoin JSON-RPC
+- Hyperliquid market data
+- Deribit market data
+- canonical BTC price history
+- US spot Bitcoin ETF context
+- US macroeconomic context
+- NDJSON prospective research stores
+- deterministic research and decision engines
+- Git / GitHub
+- AI-assisted interpretation with evidence constraints
+
+AI is used as an interpretation layer. Deterministic collection, timestamps, evidence, and research integrity remain the source of truth.
+
+---
+
+## Why Is the Production Repository Private?
+
+The production codebase contains active intelligence logic, entity datasets, classification systems, heuristics, prospective research data, and experimental decision infrastructure.
+
+This public repository therefore documents the project's architecture, research philosophy, capabilities, and development direction without exposing the full private implementation.
+
+**→ [Full technical and research case study](docs/IDMON_CASE_STUDY.md)**
+
+---
+
+## About the Builder
+
+IDMON is designed and built by **Darkhorse934**.
+
+My professional background is analytical rather than traditional software engineering, with more than a decade of experience working with complex evidence, regulation, individual cases, and uncertain information.
+
+I am currently developing my skills across three connected areas:
+
+**Blockchains · Bitcoin · Perpetual Futures**
+
+I am particularly interested in opportunities involving:
+
+**Bitcoin research · Digital-asset intelligence · On-chain analysis · Crypto market research · Research tooling · Data-driven product development**
+
+---
+
+## Status
+
+**Active independent research project — 2026**
+
+IDMON's current research outputs are experimental and should not be interpreted as financial advice or evidence of guaranteed trading performance.
+
+---
+
+> **Understand the evidence first. Decide whether action is justified second.**
